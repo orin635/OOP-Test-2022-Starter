@@ -2,7 +2,7 @@ package ie.tudublin;
 
 import processing.data.TableRow;
 
-public class Nematode {
+public class Nematode{
     private String name;
     private int length;
     private boolean limbs;
@@ -10,6 +10,14 @@ public class Nematode {
     private boolean eyes;
 
     
+
+    @Override
+    public String toString() {
+        return "Nematode [eyes=" + eyes + ", gender=" + gender + ", length=" + length + ", limbs=" + limbs + ", name="
+                + name + "]";
+    }
+
+
 
     public Nematode(TableRow tr){
         this(
@@ -32,11 +40,7 @@ public class Nematode {
     }
 
 
-    @Override
-    public String toString() {
-        return "Nematode [eyes=" + eyes + ", gender=" + gender + ", length=" + length + ", limbs=" + limbs + ", name="
-                + name + "]";
-    }
+    
 
 
     public String getName() {
