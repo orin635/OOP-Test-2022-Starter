@@ -13,6 +13,24 @@ public class NematodeVisualiser extends PApplet
 	int position;
 
 
+	public void mouseClicked(){
+		if(mouseX > width-215 && mouseX < width-85 && mouseY > height/2 -40 && mouseY < height/2 + 40){
+			position = position + 1;
+			if(position > (nematodes.size() - 1)){
+				position = 0;
+			}
+		}
+
+
+		if(mouseX < 215 && mouseX > 85 && mouseY > height/2 -40 && mouseY < height/2 + 40){
+			position = position - 1;
+			if(position < 0){
+				position = (nematodes.size() - 1);
+			}
+		}
+	}
+
+
 	public void keyPressed()
 	{		
 		if (keyCode == LEFT)
@@ -70,6 +88,7 @@ public class NematodeVisualiser extends PApplet
 
 
 	public void drawNematodes(){
+		colorMode(HSB);
 		Nematode nem = nematodes.get(position);
 		float radius = 50;
 		String name = nem.getName();
@@ -134,22 +153,55 @@ public class NematodeVisualiser extends PApplet
 		textAlign(CENTER, CENTER);
 		textSize(30);
 		fill(color,255,255);
-		text(name, width/2, startY - 80);
+		text(name + " (" + gender + ")", width/2, startY - 80);
 	}
 
 
 	public void drawBackground(){
+
+		//Draw Right Arrow
 		line(width-200, height/2, width-100, height/2);
 		line(width-100, height/2, width-130, height/2 - 30);
 		line(width-100, height/2, width-130, height/2 + 30);
 
+		//Draw Left Arrow
 		line(200, height/2, 100, height/2);
 		line(100, height/2, 130, height/2 - 30);
 		line(100, height/2, 130, height/2 + 30);
+
+
+		//Draw Name on top
+		colorMode(RGB);
+		textSize(50);
+		stroke(255, 255, 255);
+		fill(255, 255, 255);
+		text("Examples Of Nematodes", width/2, 20);
+
+		//Draw location circles
+		int startX = width/2 - (nematodes.size()/2 * 30);
+		for(int i = 0; i<nematodes.size(); i ++){
+			int x = startX + 30*i;
+			int r = 10;
+
+			stroke(255, 255, 255);
+			fill(255, 255, 255);
+
+			if(i == position){
+				stroke(70, 70, 70);
+				fill(70, 70, 70);
+				r = 15;
+			}
+
+			circle(x, height-60, r);
+
+
+			
+		}
 	}
 
 	public void draw()
 	{	
+
 		background(0);
 		drawNematodes();
 		drawBackground();
