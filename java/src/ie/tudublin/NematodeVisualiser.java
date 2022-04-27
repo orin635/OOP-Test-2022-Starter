@@ -97,6 +97,25 @@ public class NematodeVisualiser extends PApplet
 				line(width/2 + radius/2, y, width/2 + radius/2 + 20, y);
 			}
 
+			if(eyes == true){
+				if(i == 0){
+					float x1 = (width/2) - ((radius/2) * cos(42));
+					float y1 = y + ((radius/2) * sin(42));
+					float x2 = (width/2) - ((50) * cos(42));
+					float y2 = y + ((50) * sin(42));
+					line(x1, y1, x2, y2);
+					circle(x2, y2, 7);
+
+
+					x1 = (width/2) + ((radius/2) * cos(42));
+					x2 = (width/2) + ((50) * cos(42));
+					line(x1, y1, x2, y2);
+					circle(x2, y2, 7);
+
+
+				}
+			}
+
 		}
 
 
