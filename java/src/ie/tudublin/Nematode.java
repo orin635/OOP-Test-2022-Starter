@@ -49,7 +49,7 @@ public class Nematode{
     public void setName(String name) {
         this.name = name;
     }
-    public float getLength() {
+    public int getLength() {
         return length;
     }
     public void setLength(int length) {
