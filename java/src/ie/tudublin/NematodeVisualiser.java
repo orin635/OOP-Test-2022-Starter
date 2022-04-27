@@ -111,8 +111,20 @@ public class NematodeVisualiser extends PApplet
 					x2 = (width/2) + ((50) * cos(42));
 					line(x1, y1, x2, y2);
 					circle(x2, y2, 7);
+				}
+			}
 
 
+			if(gender.equals("m") || gender.equals("h")){
+				if(i == (length-1)){
+					line(width/2, y+radius/2, width/2, y+50);
+					circle(width/2, y+55, 10);
+				}
+			}
+
+			if(gender.equals("f") || gender.equals("h")){
+				if(i == (length-1)){
+					circle(width/2, y, 25);
 				}
 			}
 
@@ -126,9 +138,20 @@ public class NematodeVisualiser extends PApplet
 	}
 
 
+	public void drawBackground(){
+		line(width-200, height/2, width-100, height/2);
+		line(width-100, height/2, width-130, height/2 - 30);
+		line(width-100, height/2, width-130, height/2 + 30);
+
+		line(200, height/2, 100, height/2);
+		line(100, height/2, 130, height/2 - 30);
+		line(100, height/2, 130, height/2 + 30);
+	}
+
 	public void draw()
 	{	
 		background(0);
 		drawNematodes();
+		drawBackground();
 	}
 }
